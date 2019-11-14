@@ -1,0 +1,34 @@
+In this memento implementation to add quick save and restore functionality:
+    1. Created a memento class called "Memento.java"
+        In this class, it's function is to save the required locations of the characters and players.
+
+        This includes the sheep, shepherd, wolf and player characters.
+
+        It also has a constructor that can be used in other classes especially in the Stage.java (Originator) and CareTaker.java (Caretaker)
+
+    2. Created a new class called "CareTaker.java".
+        In this class, it's function is to manage and organise the locations of the Sheep, Shepherd, wolf and player
+        characters.
+
+        The CareTaker.java class has a container that stores the locations of the characters which is stored as a memento object.
+
+        Since the sole purpose of the caretaker class to create and store memento objects, there is no other functions to create and restore
+        the memento.
+
+        It also implemented the KeyObserver class.
+        The purpose of this is to make the careTaker class a observer of the stage class,so that the careTaker knows when the positions
+        changes in the stage class when SPACE and "r" is evoked.
+
+    3. In the stage class;
+        There is two new methods:
+            a) CreateMementoState.
+                This method creates a memento which holds the current positions that is stored as Cell objects.
+            b) restoreCreatedMementoState
+                This method restores that saved memento.
+
+However the memento pattern is not suited for this kind of application mainly because the memento pattern tightly couples the memento object
+to the class. This restricts the diversity of the code, in other words, to chang the functionality of the program, you must change the code
+in the actual class.
+
+Furthermore, this particular implementation memento pattern does not handle the use case of when the player wants to "revert" back to two
+iterations of the save function. In other words, when SPACE is pressed a second time, the first saved state of the game is lost permanently.
